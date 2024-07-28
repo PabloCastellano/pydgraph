@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-import api_pb2 as api__pb2
+from pydgraph.proto import api_pb2 as pydgraph_dot_proto_dot_api__pb2
 
 GRPC_GENERATED_VERSION = '1.65.1'
 GRPC_VERSION = grpc.__version__
@@ -20,7 +20,7 @@ except ImportError:
 if _version_not_supported:
     warnings.warn(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in api_pb2_grpc.py depends on'
+        + f' but the generated code in pydgraph/proto/api_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
@@ -42,28 +42,28 @@ class DgraphStub(object):
         """
         self.Login = channel.unary_unary(
                 '/api.Dgraph/Login',
-                request_serializer=api__pb2.LoginRequest.SerializeToString,
-                response_deserializer=api__pb2.Response.FromString,
+                request_serializer=pydgraph_dot_proto_dot_api__pb2.LoginRequest.SerializeToString,
+                response_deserializer=pydgraph_dot_proto_dot_api__pb2.Response.FromString,
                 _registered_method=True)
         self.Query = channel.unary_unary(
                 '/api.Dgraph/Query',
-                request_serializer=api__pb2.Request.SerializeToString,
-                response_deserializer=api__pb2.Response.FromString,
+                request_serializer=pydgraph_dot_proto_dot_api__pb2.Request.SerializeToString,
+                response_deserializer=pydgraph_dot_proto_dot_api__pb2.Response.FromString,
                 _registered_method=True)
         self.Alter = channel.unary_unary(
                 '/api.Dgraph/Alter',
-                request_serializer=api__pb2.Operation.SerializeToString,
-                response_deserializer=api__pb2.Payload.FromString,
+                request_serializer=pydgraph_dot_proto_dot_api__pb2.Operation.SerializeToString,
+                response_deserializer=pydgraph_dot_proto_dot_api__pb2.Payload.FromString,
                 _registered_method=True)
         self.CommitOrAbort = channel.unary_unary(
                 '/api.Dgraph/CommitOrAbort',
-                request_serializer=api__pb2.TxnContext.SerializeToString,
-                response_deserializer=api__pb2.TxnContext.FromString,
+                request_serializer=pydgraph_dot_proto_dot_api__pb2.TxnContext.SerializeToString,
+                response_deserializer=pydgraph_dot_proto_dot_api__pb2.TxnContext.FromString,
                 _registered_method=True)
         self.CheckVersion = channel.unary_unary(
                 '/api.Dgraph/CheckVersion',
-                request_serializer=api__pb2.Check.SerializeToString,
-                response_deserializer=api__pb2.Version.FromString,
+                request_serializer=pydgraph_dot_proto_dot_api__pb2.Check.SerializeToString,
+                response_deserializer=pydgraph_dot_proto_dot_api__pb2.Version.FromString,
                 _registered_method=True)
 
 
@@ -106,28 +106,28 @@ def add_DgraphServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Login': grpc.unary_unary_rpc_method_handler(
                     servicer.Login,
-                    request_deserializer=api__pb2.LoginRequest.FromString,
-                    response_serializer=api__pb2.Response.SerializeToString,
+                    request_deserializer=pydgraph_dot_proto_dot_api__pb2.LoginRequest.FromString,
+                    response_serializer=pydgraph_dot_proto_dot_api__pb2.Response.SerializeToString,
             ),
             'Query': grpc.unary_unary_rpc_method_handler(
                     servicer.Query,
-                    request_deserializer=api__pb2.Request.FromString,
-                    response_serializer=api__pb2.Response.SerializeToString,
+                    request_deserializer=pydgraph_dot_proto_dot_api__pb2.Request.FromString,
+                    response_serializer=pydgraph_dot_proto_dot_api__pb2.Response.SerializeToString,
             ),
             'Alter': grpc.unary_unary_rpc_method_handler(
                     servicer.Alter,
-                    request_deserializer=api__pb2.Operation.FromString,
-                    response_serializer=api__pb2.Payload.SerializeToString,
+                    request_deserializer=pydgraph_dot_proto_dot_api__pb2.Operation.FromString,
+                    response_serializer=pydgraph_dot_proto_dot_api__pb2.Payload.SerializeToString,
             ),
             'CommitOrAbort': grpc.unary_unary_rpc_method_handler(
                     servicer.CommitOrAbort,
-                    request_deserializer=api__pb2.TxnContext.FromString,
-                    response_serializer=api__pb2.TxnContext.SerializeToString,
+                    request_deserializer=pydgraph_dot_proto_dot_api__pb2.TxnContext.FromString,
+                    response_serializer=pydgraph_dot_proto_dot_api__pb2.TxnContext.SerializeToString,
             ),
             'CheckVersion': grpc.unary_unary_rpc_method_handler(
                     servicer.CheckVersion,
-                    request_deserializer=api__pb2.Check.FromString,
-                    response_serializer=api__pb2.Version.SerializeToString,
+                    request_deserializer=pydgraph_dot_proto_dot_api__pb2.Check.FromString,
+                    response_serializer=pydgraph_dot_proto_dot_api__pb2.Version.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -156,8 +156,8 @@ class Dgraph(object):
             request,
             target,
             '/api.Dgraph/Login',
-            api__pb2.LoginRequest.SerializeToString,
-            api__pb2.Response.FromString,
+            pydgraph_dot_proto_dot_api__pb2.LoginRequest.SerializeToString,
+            pydgraph_dot_proto_dot_api__pb2.Response.FromString,
             options,
             channel_credentials,
             insecure,
@@ -183,8 +183,8 @@ class Dgraph(object):
             request,
             target,
             '/api.Dgraph/Query',
-            api__pb2.Request.SerializeToString,
-            api__pb2.Response.FromString,
+            pydgraph_dot_proto_dot_api__pb2.Request.SerializeToString,
+            pydgraph_dot_proto_dot_api__pb2.Response.FromString,
             options,
             channel_credentials,
             insecure,
@@ -210,8 +210,8 @@ class Dgraph(object):
             request,
             target,
             '/api.Dgraph/Alter',
-            api__pb2.Operation.SerializeToString,
-            api__pb2.Payload.FromString,
+            pydgraph_dot_proto_dot_api__pb2.Operation.SerializeToString,
+            pydgraph_dot_proto_dot_api__pb2.Payload.FromString,
             options,
             channel_credentials,
             insecure,
@@ -237,8 +237,8 @@ class Dgraph(object):
             request,
             target,
             '/api.Dgraph/CommitOrAbort',
-            api__pb2.TxnContext.SerializeToString,
-            api__pb2.TxnContext.FromString,
+            pydgraph_dot_proto_dot_api__pb2.TxnContext.SerializeToString,
+            pydgraph_dot_proto_dot_api__pb2.TxnContext.FromString,
             options,
             channel_credentials,
             insecure,
@@ -264,8 +264,8 @@ class Dgraph(object):
             request,
             target,
             '/api.Dgraph/CheckVersion',
-            api__pb2.Check.SerializeToString,
-            api__pb2.Version.FromString,
+            pydgraph_dot_proto_dot_api__pb2.Check.SerializeToString,
+            pydgraph_dot_proto_dot_api__pb2.Version.FromString,
             options,
             channel_credentials,
             insecure,
